@@ -1,797 +1,680 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2636
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
-{\colortbl;\red255\green255\blue255;\red79\green123\blue61;\red26\green26\blue41;\red172\green172\blue193;
-\red70\green137\blue204;\red212\green212\blue212;\red167\green197\blue152;\red45\green175\blue118;\red14\green86\blue166;
-\red31\green133\blue64;\red13\green102\blue149;\red140\green108\blue11;\red253\green181\blue13;\red237\green114\blue173;
-\red194\green126\blue101;\red115\green123\blue132;}
-{\*\expandedcolortbl;;\cssrgb\c37647\c54510\c30588;\cssrgb\c13333\c13725\c21176;\cssrgb\c72941\c73333\c80000;
-\cssrgb\c33725\c61176\c83922;\cssrgb\c86275\c86275\c86275;\cssrgb\c70980\c80784\c65882;\cssrgb\c19608\c72941\c53725;\cssrgb\c3137\c42353\c70980;
-\cssrgb\c12941\c58039\c31765;\cssrgb\c0\c47843\c65098;\cssrgb\c61961\c49412\c3137;\cssrgb\c100000\c75686\c2745;\cssrgb\c95294\c54118\c73333;
-\cssrgb\c80784\c56863\c47059;\cssrgb\c52549\c55686\c58824;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\deftab720
-\pard\pardeftab720\partightenfactor0
+// SPDX-License-Identifier: MIT
 
-\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 // SPDX-License-Identifier: MIT\cf4 \cb1 \strokec4 \
-\
-\cf2 \cb3 \strokec2 /**\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * Visit https://www.X\'c6A-Xii.space/\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * X \'c6 A-Xii, Son of Elon\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * "We want to open up space for humanity, and in order to do that, space must be affordable" - Elon Musk\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * Buy, Hold, Share. Join Discord, Space, Hold, Lambo, Moon, Together.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2 */\cf4 \cb1 \strokec4 \
-\
-\cf2 \cb3 \strokec2 // File: @openzeppelin/contracts/utils/Context.sol\cf4 \cb1 \strokec4 \
-\
-\
-\cf2 \cb3 \strokec2 // OpenZeppelin Contracts v4.4.1 (utils/Context.sol)\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 pragma\cf4 \strokec4  \cf5 \strokec5 solidity\cf4 \strokec4  \cf6 \strokec6 ^\cf7 \strokec7 0.8.0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 /**\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * @dev Provides information about the current execution context, including the\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * sender of the transaction and its data. While these are generally available\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * via msg.sender and msg.data, they should not be accessed in such a direct\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * manner, since when dealing with meta-transactions the account sending and\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * paying for execution may not be the actual sender (as far as an application\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * is concerned).\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * This contract is only required for intermediate, library-like contracts.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 abstract\cf4 \strokec4  \cf5 \strokec5 contract\cf4 \strokec4  Context \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  _msgSender\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 address\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  \cf11 \strokec11 msg\cf6 \strokec6 .\cf4 \strokec4 sender\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf5 \strokec5 function\cf4 \strokec4  _msgData\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf11 \strokec11 bytes\cf4 \strokec4  \cf12 \strokec12 calldata\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  \cf11 \strokec11 msg\cf6 \strokec6 .\cf4 \strokec4 data\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 // File: @openzeppelin/contracts/access/Ownable.sol\cf4 \cb1 \strokec4 \
-\
-\
-\cf2 \cb3 \strokec2 // OpenZeppelin Contracts v4.4.1 (access/Ownable.sol)\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 pragma\cf4 \strokec4  \cf5 \strokec5 solidity\cf4 \strokec4  \cf6 \strokec6 ^\cf7 \strokec7 0.8.0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 /**\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * @dev Contract module which provides a basic access control mechanism, where\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * there is an account (an owner) that can be granted exclusive access to\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * specific functions.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * By default, the owner account will be the one that deploys the contract. This\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * can later be changed with \{transferOwnership\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * This module is used through inheritance. It will make available the modifier\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * `onlyOwner`, which can be applied to your functions to restrict their use to\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * the owner.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 abstract\cf4 \strokec4  \cf5 \strokec5 contract\cf4 \strokec4  Ownable \cf5 \strokec5 is\cf4 \strokec4  Context \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 address\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  _owner\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf5 \strokec5 event\cf4 \strokec4  OwnershipTransferred\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  \cf13 \strokec13 indexed\cf4 \strokec4  previousOwner\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf4 \strokec4  \cf13 \strokec13 indexed\cf4 \strokec4  newOwner\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Initializes the contract setting the deployer as the initial owner.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf14 \strokec14 constructor\cf6 \strokec6 ()\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         _transferOwnership\cf6 \strokec6 (\cf4 \strokec4 _msgSender\cf6 \strokec6 ());\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the address of the current owner.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  owner\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 address\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  _owner\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Throws if called by any account other than the owner.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 modifier\cf4 \strokec4  onlyOwner\cf6 \strokec6 ()\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 owner\cf6 \strokec6 ()\cf4 \strokec4  \cf6 \strokec6 ==\cf4 \strokec4  _msgSender\cf6 \strokec6 (),\cf4 \strokec4  \cf15 \strokec15 "Ownable: caller is not the owner"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         _\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Leaves the contract without owner. It will not be possible to call\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * `onlyOwner` functions anymore. Can only be called by the current owner.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * NOTE: Renouncing ownership will leave the contract without an owner,\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * thereby removing any functionality that is only available to the owner.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  renounceOwnership\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  onlyOwner \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         _transferOwnership\cf6 \strokec6 (\cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ));\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Transfers ownership of the contract to a new account (`newOwner`).\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Can only be called by the current owner.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  transferOwnership\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  newOwner\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  onlyOwner \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 newOwner \cf6 \strokec6 !=\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  \cf15 \strokec15 "Ownable: new owner is the zero address"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         _transferOwnership\cf6 \strokec6 (\cf4 \strokec4 newOwner\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Transfers ownership of the contract to a new account (`newOwner`).\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Internal function without access restriction.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  _transferOwnership\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  newOwner\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  oldOwner \cf6 \strokec6 =\cf4 \strokec4  _owner\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3         _owner \cf6 \strokec6 =\cf4 \strokec4  newOwner\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 emit\cf4 \strokec4  OwnershipTransferred\cf6 \strokec6 (\cf4 \strokec4 oldOwner\cf6 \strokec6 ,\cf4 \strokec4  newOwner\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 // File: @openzeppelin/contracts/token/ERC20/IERC20.sol\cf4 \cb1 \strokec4 \
-\
-\
-\cf2 \cb3 \strokec2 // OpenZeppelin Contracts v4.4.1 (token/ERC20/IERC20.sol)\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 pragma\cf4 \strokec4  \cf5 \strokec5 solidity\cf4 \strokec4  \cf6 \strokec6 ^\cf7 \strokec7 0.8.0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 /**\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * @dev Interface of the ERC20 standard as defined in the EIP.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3 interface IERC20 \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the amount of tokens in existence.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  totalSupply\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint256\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the amount of tokens owned by `account`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  balanceOf\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  account\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint256\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Moves `amount` tokens from the caller's account to `recipient`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Returns a boolean value indicating whether the operation succeeded.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits a \{Transfer\} event.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  transfer\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  amount\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 bool\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the remaining number of tokens that `spender` will be\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * allowed to spend on behalf of `owner` through \{transferFrom\}. This is\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * zero by default.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * This value changes when \{approve\} or \{transferFrom\} are called.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  allowance\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  owner\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf4 \strokec4  spender\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint256\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Returns a boolean value indicating whether the operation succeeded.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * IMPORTANT: Beware that changing an allowance with this method brings the risk\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * that someone may use both the old and the new allowance by unfortunate\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * transaction ordering. One possible solution to mitigate this race\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * condition is to first reduce the spender's allowance to 0 and set the\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * desired value afterwards:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits an \{Approval\} event.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  approve\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  amount\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 bool\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Moves `amount` tokens from `sender` to `recipient` using the\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * allowance mechanism. `amount` is then deducted from the caller's\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * allowance.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Returns a boolean value indicating whether the operation succeeded.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits a \{Transfer\} event.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  transferFrom\cf6 \strokec6 (\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  sender\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  amount\cb1 \
-\cb3     \cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 bool\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Emitted when `value` tokens are moved from one account (`from`) to\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * another (`to`).\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Note that `value` may be zero.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 event\cf4 \strokec4  Transfer\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  \cf13 \strokec13 indexed\cf4 \strokec4  from\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf4 \strokec4  \cf13 \strokec13 indexed\cf4 \strokec4  to\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  value\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Emitted when the allowance of a `spender` for an `owner` is set by\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * a call to \{approve\}. `value` is the new allowance.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 event\cf4 \strokec4  Approval\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  \cf13 \strokec13 indexed\cf4 \strokec4  owner\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf4 \strokec4  \cf13 \strokec13 indexed\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  value\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 // File: @openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol\cf4 \cb1 \strokec4 \
-\
-\
-\cf2 \cb3 \strokec2 // OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 pragma\cf4 \strokec4  \cf5 \strokec5 solidity\cf4 \strokec4  \cf6 \strokec6 ^\cf7 \strokec7 0.8.0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 /**\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * @dev Interface for the optional metadata functions from the ERC20 standard.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * _Available since v4.1._\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3 interface IERC20Metadata \cf5 \strokec5 is\cf4 \strokec4  IERC20 \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the name of the token.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  name\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 string\cf4 \strokec4  \cf12 \strokec12 memory\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the symbol of the token.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  symbol\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 string\cf4 \strokec4  \cf12 \strokec12 memory\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the decimals places of the token.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  decimals\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint8\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 // File: @openzeppelin/contracts/token/ERC20/ERC20.sol\cf4 \cb1 \strokec4 \
-\
-\
-\cf2 \cb3 \strokec2 // OpenZeppelin Contracts v4.4.1 (token/ERC20/ERC20.sol)\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 pragma\cf4 \strokec4  \cf5 \strokec5 solidity\cf4 \strokec4  \cf6 \strokec6 ^\cf7 \strokec7 0.8.0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\
-\
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 /**\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * @dev Implementation of the \{IERC20\} interface.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * This implementation is agnostic to the way tokens are created. This means\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * that a supply mechanism has to be added in a derived contract using \{_mint\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * For a generic mechanism see \{ERC20PresetMinterPauser\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * TIP: For a detailed writeup see our guide\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * to implement supply mechanisms].\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * We have followed general OpenZeppelin Contracts guidelines: functions revert\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * instead returning `false` on failure. This behavior is nonetheless\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * conventional and does not conflict with the expectations of ERC20\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * applications.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * Additionally, an \{Approval\} event is emitted on calls to \{transferFrom\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * This allows applications to reconstruct the allowance for all accounts just\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * by listening to said events. Other implementations of the EIP may not emit\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * these events, as it isn't required by the specification.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * Finally, the non-standard \{decreaseAllowance\} and \{increaseAllowance\}\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * functions have been added to mitigate the well-known issues around setting\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  * allowances. See \{IERC20-approve\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2  */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 contract\cf4 \strokec4  ERC20 \cf5 \strokec5 is\cf4 \strokec4  Context\cf6 \strokec6 ,\cf4 \strokec4  IERC20\cf6 \strokec6 ,\cf4 \strokec4  IERC20Metadata \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 mapping\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  => \cf5 \strokec5 uint256\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  _balances\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf5 \strokec5 mapping\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  => \cf5 \strokec5 mapping\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  => \cf5 \strokec5 uint256\cf6 \strokec6 ))\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  _allowances\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf5 \strokec5 uint256\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  _totalSupply\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf5 \strokec5 string\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  _name\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 string\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  _symbol\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Sets the values for \{name\} and \{symbol\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * The default value of \{decimals\} is 18. To select a different value for\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * \{decimals\} you should overload it.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * All two of these values are immutable: they can only be set once during\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * construction.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf14 \strokec14 constructor\cf6 \strokec6 (\cf5 \strokec5 string\cf4 \strokec4  \cf12 \strokec12 memory\cf4 \strokec4  name_\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 string\cf4 \strokec4  \cf12 \strokec12 memory\cf4 \strokec4  symbol_\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         _name \cf6 \strokec6 =\cf4 \strokec4  name_\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3         _symbol \cf6 \strokec6 =\cf4 \strokec4  symbol_\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the name of the token.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  name\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 string\cf4 \strokec4  \cf12 \strokec12 memory\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  _name\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the symbol of the token, usually a shorter version of the\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * name.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  symbol\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 string\cf4 \strokec4  \cf12 \strokec12 memory\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  _symbol\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Returns the number of decimals used to get its user representation.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * For example, if `decimals` equals `2`, a balance of `505` tokens should\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * be displayed to a user as `5.05` (`505 / 10 ** 2`).\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Tokens usually opt for a value of 18, imitating the relationship between\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Ether and Wei. This is the value \{ERC20\} uses, unless this function is\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * overridden;\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * NOTE: This information is only used for _display_ purposes: it in\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * no way affects any of the arithmetic of the contract, including\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * \{IERC20-balanceOf\} and \{IERC20-transfer\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  decimals\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint8\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  \cf7 \strokec7 18\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev See \{IERC20-totalSupply\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  totalSupply\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint256\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  _totalSupply\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev See \{IERC20-balanceOf\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  balanceOf\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  account\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint256\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  _balances\cf6 \strokec6 [\cf4 \strokec4 account\cf6 \strokec6 ];\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev See \{IERC20-transfer\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `recipient` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - the caller must have a balance of at least `amount`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  transfer\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  amount\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 bool\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         _transfer\cf6 \strokec6 (\cf4 \strokec4 _msgSender\cf6 \strokec6 (),\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  \cf5 \strokec5 true\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev See \{IERC20-allowance\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  allowance\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  owner\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf4 \strokec4  spender\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf8 \strokec8 view\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint256\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  _allowances\cf6 \strokec6 [\cf4 \strokec4 owner\cf6 \strokec6 ][\cf4 \strokec4 spender\cf6 \strokec6 ];\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev See \{IERC20-approve\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `spender` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  approve\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  amount\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 bool\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         _approve\cf6 \strokec6 (\cf4 \strokec4 _msgSender\cf6 \strokec6 (),\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  \cf5 \strokec5 true\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev See \{IERC20-transferFrom\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits an \{Approval\} event indicating the updated allowance. This is not\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * required by the EIP. See the note at the beginning of \{ERC20\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `sender` and `recipient` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `sender` must have a balance of at least `amount`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - the caller must have allowance for ``sender``'s tokens of at least\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * `amount`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  transferFrom\cf6 \strokec6 (\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  sender\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  amount\cb1 \
-\cb3     \cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 bool\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         _transfer\cf6 \strokec6 (\cf4 \strokec4 sender\cf6 \strokec6 ,\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  currentAllowance \cf6 \strokec6 =\cf4 \strokec4  _allowances\cf6 \strokec6 [\cf4 \strokec4 sender\cf6 \strokec6 ][\cf4 \strokec4 _msgSender\cf6 \strokec6 ()];\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 currentAllowance \cf6 \strokec6 >=\cf4 \strokec4  amount\cf6 \strokec6 ,\cf4 \strokec4  \cf15 \strokec15 "ERC20: transfer amount exceeds allowance"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         unchecked \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3             _approve\cf6 \strokec6 (\cf4 \strokec4 sender\cf6 \strokec6 ,\cf4 \strokec4  _msgSender\cf6 \strokec6 (),\cf4 \strokec4  currentAllowance \cf6 \strokec6 -\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  \cf5 \strokec5 true\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Atomically increases the allowance granted to `spender` by the caller.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * This is an alternative to \{approve\} that can be used as a mitigation for\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * problems described in \{IERC20-approve\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits an \{Approval\} event indicating the updated allowance.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `spender` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  increaseAllowance\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  addedValue\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 bool\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         _approve\cf6 \strokec6 (\cf4 \strokec4 _msgSender\cf6 \strokec6 (),\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  _allowances\cf6 \strokec6 [\cf4 \strokec4 _msgSender\cf6 \strokec6 ()][\cf4 \strokec4 spender\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 +\cf4 \strokec4  addedValue\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  \cf5 \strokec5 true\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Atomically decreases the allowance granted to `spender` by the caller.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * This is an alternative to \{approve\} that can be used as a mitigation for\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * problems described in \{IERC20-approve\}.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits an \{Approval\} event indicating the updated allowance.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `spender` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `spender` must have allowance for the caller of at least\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * `subtractedValue`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  decreaseAllowance\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  subtractedValue\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 public\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 bool\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  currentAllowance \cf6 \strokec6 =\cf4 \strokec4  _allowances\cf6 \strokec6 [\cf4 \strokec4 _msgSender\cf6 \strokec6 ()][\cf4 \strokec4 spender\cf6 \strokec6 ];\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 currentAllowance \cf6 \strokec6 >=\cf4 \strokec4  subtractedValue\cf6 \strokec6 ,\cf4 \strokec4  \cf15 \strokec15 "ERC20: decreased allowance below zero"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         unchecked \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3             _approve\cf6 \strokec6 (\cf4 \strokec4 _msgSender\cf6 \strokec6 (),\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  currentAllowance \cf6 \strokec6 -\cf4 \strokec4  subtractedValue\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf10 \strokec10 return\cf4 \strokec4  \cf5 \strokec5 true\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Moves `amount` of tokens from `sender` to `recipient`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * This internal function is equivalent to \{transfer\}, and can be used to\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * e.g. implement automatic token fees, slashing mechanisms, etc.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits a \{Transfer\} event.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `sender` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `recipient` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `sender` must have a balance of at least `amount`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  _transfer\cf6 \strokec6 (\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  sender\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  amount\cb1 \
-\cb3     \cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 sender \cf6 \strokec6 !=\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  \cf15 \strokec15 "ERC20: transfer from the zero address"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 recipient \cf6 \strokec6 !=\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  \cf15 \strokec15 "ERC20: transfer to the zero address"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         _beforeTokenTransfer\cf6 \strokec6 (\cf4 \strokec4 sender\cf6 \strokec6 ,\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  senderBalance \cf6 \strokec6 =\cf4 \strokec4  _balances\cf6 \strokec6 [\cf4 \strokec4 sender\cf6 \strokec6 ];\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 senderBalance \cf6 \strokec6 >=\cf4 \strokec4  amount\cf6 \strokec6 ,\cf4 \strokec4  \cf15 \strokec15 "ERC20: transfer amount exceeds balance"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         unchecked \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3             _balances\cf6 \strokec6 [\cf4 \strokec4 sender\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  senderBalance \cf6 \strokec6 -\cf4 \strokec4  amount\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\cb3         _balances\cf6 \strokec6 [\cf4 \strokec4 recipient\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 +=\cf4 \strokec4  amount\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf5 \strokec5 emit\cf4 \strokec4  Transfer\cf6 \strokec6 (\cf4 \strokec4 sender\cf6 \strokec6 ,\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         _afterTokenTransfer\cf6 \strokec6 (\cf4 \strokec4 sender\cf6 \strokec6 ,\cf4 \strokec4  recipient\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /** @dev Creates `amount` tokens and assigns them to `account`, increasing\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * the total supply.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits a \{Transfer\} event with `from` set to the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `account` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  _mint\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  account\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  amount\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 account \cf6 \strokec6 !=\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  \cf15 \strokec15 "ERC20: mint to the zero address"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         _beforeTokenTransfer\cf6 \strokec6 (\cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  account\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         _totalSupply \cf6 \strokec6 +=\cf4 \strokec4  amount\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3         _balances\cf6 \strokec6 [\cf4 \strokec4 account\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 +=\cf4 \strokec4  amount\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 emit\cf4 \strokec4  Transfer\cf6 \strokec6 (\cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  account\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         _afterTokenTransfer\cf6 \strokec6 (\cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  account\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Destroys `amount` tokens from `account`, reducing the\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * total supply.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits a \{Transfer\} event with `to` set to the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `account` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `account` must have at least `amount` tokens.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  _burn\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  account\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  amount\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 account \cf6 \strokec6 !=\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  \cf15 \strokec15 "ERC20: burn from the zero address"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         _beforeTokenTransfer\cf6 \strokec6 (\cf4 \strokec4 account\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  accountBalance \cf6 \strokec6 =\cf4 \strokec4  _balances\cf6 \strokec6 [\cf4 \strokec4 account\cf6 \strokec6 ];\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 accountBalance \cf6 \strokec6 >=\cf4 \strokec4  amount\cf6 \strokec6 ,\cf4 \strokec4  \cf15 \strokec15 "ERC20: burn amount exceeds balance"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         unchecked \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3             _balances\cf6 \strokec6 [\cf4 \strokec4 account\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  accountBalance \cf6 \strokec6 -\cf4 \strokec4  amount\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\cb3         _totalSupply \cf6 \strokec6 -=\cf4 \strokec4  amount\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3         \cf5 \strokec5 emit\cf4 \strokec4  Transfer\cf6 \strokec6 (\cf4 \strokec4 account\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         _afterTokenTransfer\cf6 \strokec6 (\cf4 \strokec4 account\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Sets `amount` as the allowance of `spender` over the `owner` s tokens.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * This internal function is equivalent to `approve`, and can be used to\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * e.g. set automatic allowances for certain subsystems, etc.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Emits an \{Approval\} event.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Requirements:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `owner` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `spender` cannot be the zero address.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  _approve\cf6 \strokec6 (\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  owner\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  amount\cb1 \
-\cb3     \cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 owner \cf6 \strokec6 !=\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  \cf15 \strokec15 "ERC20: approve from the zero address"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3         \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 spender \cf6 \strokec6 !=\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf7 \strokec7 0\cf6 \strokec6 ),\cf4 \strokec4  \cf15 \strokec15 "ERC20: approve to the zero address"\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3         _allowances\cf6 \strokec6 [\cf4 \strokec4 owner\cf6 \strokec6 ][\cf4 \strokec4 spender\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  amount\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 emit\cf4 \strokec4  Approval\cf6 \strokec6 (\cf4 \strokec4 owner\cf6 \strokec6 ,\cf4 \strokec4  spender\cf6 \strokec6 ,\cf4 \strokec4  amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Hook that is called before any transfer of tokens. This includes\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * minting and burning.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Calling conditions:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * will be transferred to `to`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - when `from` is zero, `amount` tokens will be minted for `to`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - when `to` is zero, `amount` of ``from``'s tokens will be burned.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `from` and `to` are never both zero.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  _beforeTokenTransfer\cf6 \strokec6 (\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  from\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  to\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  amount\cb1 \
-\cb3     \cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf6 \strokec6 \{\}\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf2 \strokec2 /**\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2      * @dev Hook that is called after any transfer of tokens. This includes\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * minting and burning.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * Calling conditions:\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * has been transferred to `to`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - when `from` is zero, `amount` tokens have been minted for `to`.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - when `to` is zero, `amount` of ``from``'s tokens have been burned.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * - `from` and `to` are never both zero.\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      *\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].\cf4 \cb1 \strokec4 \
-\cf2 \cb3 \strokec2      */\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3     \cf5 \strokec5 function\cf4 \strokec4  _afterTokenTransfer\cf6 \strokec6 (\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  from\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 address\cf4 \strokec4  to\cf6 \strokec6 ,\cf4 \cb1 \strokec4 \
-\cb3         \cf5 \strokec5 uint256\cf4 \strokec4  amount\cb1 \
-\cb3     \cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf6 \strokec6 \{\}\cf4 \cb1 \strokec4 \
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf2 \cb3 \strokec2 // File: contracts/SonOfElon .sol\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf5 \cb3 \strokec5 pragma\cf4 \strokec4  \cf5 \strokec5 solidity\cf4 \strokec4  \cf7 \strokec7 0.8.10\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\
-\cf5 \cb3 \strokec5 contract\cf4 \strokec4  SonOfElon \cf5 \strokec5 is\cf4 \strokec4  ERC20\cf6 \strokec6 ,\cf4 \strokec4  Ownable \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf4 \cb3   \cf5 \strokec5 mapping\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  => \cf5 \strokec5 bool\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  liquidityPool\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 mapping\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  => \cf5 \strokec5 bool\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  nftTax\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 mapping\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  => \cf5 \strokec5 uint256\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  lastTrade\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 uint8\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  sellTax\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 uint8\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  buyTax\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 uint8\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  transferTax\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 uint8\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  tradeCooldown\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 address\cf4 \strokec4  \cf8 \strokec8 private\cf4 \strokec4  burnpool\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\
-\cb3   \cf5 \strokec5 event\cf4 \strokec4  changeTax\cf6 \strokec6 (\cf5 \strokec5 uint8\cf4 \strokec4  _sellTax\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint8\cf4 \strokec4  _buyTax\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint8\cf4 \strokec4  _transferTax\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 event\cf4 \strokec4  changeCooldown\cf6 \strokec6 (\cf5 \strokec5 uint8\cf4 \strokec4  tradeCooldown\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 event\cf4 \strokec4  changeLiquidityPoolStatus\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  lpAddress\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 bool\cf4 \strokec4  status\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 event\cf4 \strokec4  changenftTax\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  _address\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 bool\cf4 \strokec4  status\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf5 \strokec5 event\cf4 \strokec4  changeBurnpool\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  burnpool\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf14 \strokec14 constructor\cf6 \strokec6 ()\cf4 \strokec4  ERC20\cf6 \strokec6 (\cf15 \strokec15 "X AE A-Xii Musk"\cf6 \strokec6 ,\cf4 \strokec4  \cf15 \strokec15 "XAEA-Xii"\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     _mint\cf6 \strokec6 (\cf11 \strokec11 msg\cf6 \strokec6 .\cf4 \strokec4 sender\cf6 \strokec6 ,\cf4 \strokec4  \cf7 \strokec7 5000000\cf4 \strokec4  \cf6 \strokec6 *\cf4 \strokec4  \cf7 \strokec7 1\cf4 \strokec4  ether\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3     sellTax \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     buyTax \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     transferTax \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     tradeCooldown \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 60\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 function\cf4 \strokec4  setTaxes\cf6 \strokec6 (\cf5 \strokec5 uint8\cf4 \strokec4  _sellTax\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint8\cf4 \strokec4  _buyTax\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint8\cf4 \strokec4  _transferTax\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  onlyOwner \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     sellTax \cf6 \strokec6 =\cf4 \strokec4  _sellTax\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     buyTax \cf6 \strokec6 =\cf4 \strokec4  _buyTax\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     transferTax \cf6 \strokec6 =\cf4 \strokec4  _transferTax\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 emit\cf4 \strokec4  changeTax\cf6 \strokec6 (\cf4 \strokec4 _sellTax\cf6 \strokec6 ,\cf4 \strokec4 _buyTax\cf6 \strokec6 ,\cf4 \strokec4 _transferTax\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 function\cf4 \strokec4  getTaxes\cf6 \strokec6 ()\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  \cf8 \strokec8 pure\cf4 \strokec4  \cf10 \strokec10 returns\cf4 \strokec4  \cf6 \strokec6 (\cf5 \strokec5 uint8\cf4 \strokec4  _sellTax\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint8\cf4 \strokec4  _buyTax\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint8\cf4 \strokec4  _transferTax\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     \cf10 \strokec10 return\cf4 \strokec4  \cf6 \strokec6 (\cf4 \strokec4 _sellTax\cf6 \strokec6 ,\cf4 \strokec4  _buyTax\cf6 \strokec6 ,\cf4 \strokec4  _transferTax\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 function\cf4 \strokec4  setCooldownForTrades\cf6 \strokec6 (\cf5 \strokec5 uint8\cf4 \strokec4  _tradeCooldown\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  onlyOwner \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     tradeCooldown \cf6 \strokec6 =\cf4 \strokec4  _tradeCooldown\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 emit\cf4 \strokec4  changeCooldown\cf6 \strokec6 (\cf4 \strokec4 _tradeCooldown\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 function\cf4 \strokec4  setLiquidityPoolStatus\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  _lpAddress\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 bool\cf4 \strokec4  _status\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  onlyOwner \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     liquidityPool\cf6 \strokec6 [\cf4 \strokec4 _lpAddress\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  _status\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 emit\cf4 \strokec4  changeLiquidityPoolStatus\cf6 \strokec6 (\cf4 \strokec4 _lpAddress\cf6 \strokec6 ,\cf4 \strokec4  _status\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 function\cf4 \strokec4  setnft\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  _address\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 bool\cf4 \strokec4  _status\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  onlyOwner \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     nftTax\cf6 \strokec6 [\cf4 \strokec4 _address\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  _status\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 emit\cf4 \strokec4  changenftTax\cf6 \strokec6 (\cf4 \strokec4 _address\cf6 \strokec6 ,\cf4 \strokec4  _status\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 function\cf4 \strokec4  setBurnpool\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  _burnpool\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 external\cf4 \strokec4  onlyOwner \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     burnpool \cf6 \strokec6 =\cf4 \strokec4  _burnpool\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 emit\cf4 \strokec4  changeBurnpool\cf6 \strokec6 (\cf4 \strokec4 _burnpool\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 function\cf4 \strokec4  _transfer\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  sender\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf4 \strokec4  receiver\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  amount\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf9 \strokec9 virtual\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     \cf5 \strokec5 uint256\cf4 \strokec4  taxAmount\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf13 \strokec13 if\cf6 \strokec6 (\cf4 \strokec4 liquidityPool\cf6 \strokec6 [\cf4 \strokec4 sender\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 ==\cf4 \strokec4  \cf5 \strokec5 true\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3       \cf2 \strokec2 //It's an LP Pair and it's a buy\cf4 \cb1 \strokec4 \
-\cb3       taxAmount \cf6 \strokec6 =\cf4 \strokec4  \cf6 \strokec6 (\cf4 \strokec4 amount \cf6 \strokec6 *\cf4 \strokec4  buyTax\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 /\cf4 \strokec4  \cf7 \strokec7 100\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \strokec4  \cf13 \strokec13 else\cf4 \strokec4  \cf13 \strokec13 if\cf6 \strokec6 (\cf4 \strokec4 liquidityPool\cf6 \strokec6 [\cf4 \strokec4 receiver\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 ==\cf4 \strokec4  \cf5 \strokec5 true\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \strokec4       \cb1 \
-\cb3       \cf2 \strokec2 //It's an LP Pair and it's a sell\cf4 \cb1 \strokec4 \
-\cb3       taxAmount \cf6 \strokec6 =\cf4 \strokec4  \cf6 \strokec6 (\cf4 \strokec4 amount \cf6 \strokec6 *\cf4 \strokec4  sellTax\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 /\cf4 \strokec4  \cf7 \strokec7 100\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3       \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 lastTrade\cf6 \strokec6 [\cf4 \strokec4 sender\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 <\cf4 \strokec4  \cf6 \strokec6 (\cf11 \strokec11 block\cf6 \strokec6 .\cf4 \strokec4 timestamp \cf6 \strokec6 -\cf4 \strokec4  tradeCooldown\cf6 \strokec6 ),\cf4 \strokec4  \cf5 \strokec5 string\cf6 \strokec6 (\cf15 \strokec15 "No consecutive sells allowed. Please wait."\cf6 \strokec6 ));\cf4 \cb1 \strokec4 \
-\cb3       lastTrade\cf6 \strokec6 [\cf4 \strokec4 sender\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 =\cf4 \strokec4  \cf11 \strokec11 block\cf6 \strokec6 .\cf4 \strokec4 timestamp\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\
-\cb3     \cf6 \strokec6 \}\cf4 \strokec4  \cf13 \strokec13 else\cf4 \strokec4  \cf13 \strokec13 if\cf6 \strokec6 (\cf4 \strokec4 nftTax\cf6 \strokec6 [\cf4 \strokec4 sender\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 ||\cf4 \strokec4  nftTax\cf6 \strokec6 [\cf4 \strokec4 receiver\cf6 \strokec6 ]\cf4 \strokec4  \cf6 \strokec6 ||\cf4 \strokec4  sender \cf6 \strokec6 ==\cf4 \strokec4  burnpool \cf6 \strokec6 ||\cf4 \strokec4  receiver \cf6 \strokec6 ==\cf4 \strokec4  burnpool\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3       taxAmount \cf6 \strokec6 =\cf4 \strokec4  \cf7 \strokec7 0\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \strokec4  \cf13 \strokec13 else\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3       taxAmount \cf6 \strokec6 =\cf4 \strokec4  \cf6 \strokec6 (\cf4 \strokec4 amount \cf6 \strokec6 *\cf4 \strokec4  transferTax\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 /\cf4 \strokec4  \cf7 \strokec7 100\cf6 \strokec6 ;\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\cb3     \cb1 \
-\cb3     \cf13 \strokec13 if\cf6 \strokec6 (\cf4 \strokec4 taxAmount \cf6 \strokec6 >\cf4 \strokec4  \cf7 \strokec7 0\cf6 \strokec6 )\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3       \cf9 \strokec9 super\cf6 \strokec6 .\cf4 \strokec4 _transfer\cf6 \strokec6 (\cf4 \strokec4 sender\cf6 \strokec6 ,\cf4 \strokec4  burnpool\cf6 \strokec6 ,\cf4 \strokec4  taxAmount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3     \cf6 \strokec6 \}\cf4 \strokec4     \cb1 \
-\cb3     \cf9 \strokec9 super\cf6 \strokec6 .\cf4 \strokec4 _transfer\cf6 \strokec6 (\cf4 \strokec4 sender\cf6 \strokec6 ,\cf4 \strokec4  receiver\cf6 \strokec6 ,\cf4 \strokec4  amount \cf6 \strokec6 -\cf4 \strokec4  taxAmount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\cb3   \cf5 \strokec5 function\cf4 \strokec4  _beforeTokenTransfer\cf6 \strokec6 (\cf5 \strokec5 address\cf4 \strokec4  _from\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 address\cf4 \strokec4  _to\cf6 \strokec6 ,\cf4 \strokec4  \cf5 \strokec5 uint256\cf4 \strokec4  _amount\cf6 \strokec6 )\cf4 \strokec4  \cf8 \strokec8 internal\cf4 \strokec4  \cf16 \strokec16 override\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \cb1 \strokec4 \
-\cb3     \cf11 \strokec11 require\cf6 \strokec6 (\cf4 \strokec4 _to \cf6 \strokec6 !=\cf4 \strokec4  \cf5 \strokec5 address\cf6 \strokec6 (\cf9 \strokec9 this\cf6 \strokec6 ),\cf4 \strokec4  \cf5 \strokec5 string\cf6 \strokec6 (\cf15 \strokec15 "No transfers to contract allowed."\cf6 \strokec6 ));\cf4 \strokec4     \cb1 \
-\cb3     \cf9 \strokec9 super\cf6 \strokec6 .\cf4 \strokec4 _beforeTokenTransfer\cf6 \strokec6 (\cf4 \strokec4 _from\cf6 \strokec6 ,\cf4 \strokec4  _to\cf6 \strokec6 ,\cf4 \strokec4  _amount\cf6 \strokec6 );\cf4 \cb1 \strokec4 \
-\cb3   \cf6 \strokec6 \}\cf4 \cb1 \strokec4 \
-\
-\pard\pardeftab720\partightenfactor0
-\cf6 \cb3 \strokec6 \}\cf4 \cb1 \strokec4 \
+/**
+ * Visit https://www.XÆA-Xii.space/
+ * X Æ A-Xii, Son of Elon
+ * "We want to open up space for humanity, and in order to do that, space must be affordable" - Elon Musk
+ * Buy, Hold, Share. Join Discord, Space, Hold, Lambo, Moon, Together.
+*/
+
+// File: @openzeppelin/contracts/utils/Context.sol
+
+
+// OpenZeppelin Contracts v4.4.1 (utils/Context.sol)
+
+pragma solidity ^0.8.0;
+
+/**
+ * @dev Provides information about the current execution context, including the
+ * sender of the transaction and its data. While these are generally available
+ * via msg.sender and msg.data, they should not be accessed in such a direct
+ * manner, since when dealing with meta-transactions the account sending and
+ * paying for execution may not be the actual sender (as far as an application
+ * is concerned).
+ *
+ * This contract is only required for intermediate, library-like contracts.
+ */
+abstract contract Context {
+    function _msgSender() internal view virtual returns (address) {
+        return msg.sender;
+    }
+
+    function _msgData() internal view virtual returns (bytes calldata) {
+        return msg.data;
+    }
+}
+
+// File: @openzeppelin/contracts/access/Ownable.sol
+
+
+// OpenZeppelin Contracts v4.4.1 (access/Ownable.sol)
+
+pragma solidity ^0.8.0;
+
+
+/**
+ * @dev Contract module which provides a basic access control mechanism, where
+ * there is an account (an owner) that can be granted exclusive access to
+ * specific functions.
+ *
+ * By default, the owner account will be the one that deploys the contract. This
+ * can later be changed with {transferOwnership}.
+ *
+ * This module is used through inheritance. It will make available the modifier
+ * `onlyOwner`, which can be applied to your functions to restrict their use to
+ * the owner.
+ */
+abstract contract Ownable is Context {
+    address private _owner;
+
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
+
+    /**
+     * @dev Initializes the contract setting the deployer as the initial owner.
+     */
+    constructor() {
+        _transferOwnership(_msgSender());
+    }
+
+    /**
+     * @dev Returns the address of the current owner.
+     */
+    function owner() public view virtual returns (address) {
+        return _owner;
+    }
+
+    /**
+     * @dev Throws if called by any account other than the owner.
+     */
+    modifier onlyOwner() {
+        require(owner() == _msgSender(), "Ownable: caller is not the owner");
+        _;
+    }
+
+    /**
+     * @dev Leaves the contract without owner. It will not be possible to call
+     * `onlyOwner` functions anymore. Can only be called by the current owner.
+     *
+     * NOTE: Renouncing ownership will leave the contract without an owner,
+     * thereby removing any functionality that is only available to the owner.
+     */
+    function renounceOwnership() public virtual onlyOwner {
+        _transferOwnership(address(0));
+    }
+
+    /**
+     * @dev Transfers ownership of the contract to a new account (`newOwner`).
+     * Can only be called by the current owner.
+     */
+    function transferOwnership(address newOwner) public virtual onlyOwner {
+        require(newOwner != address(0), "Ownable: new owner is the zero address");
+        _transferOwnership(newOwner);
+    }
+
+    /**
+     * @dev Transfers ownership of the contract to a new account (`newOwner`).
+     * Internal function without access restriction.
+     */
+    function _transferOwnership(address newOwner) internal virtual {
+        address oldOwner = _owner;
+        _owner = newOwner;
+        emit OwnershipTransferred(oldOwner, newOwner);
+    }
+}
+
+// File: @openzeppelin/contracts/token/ERC20/IERC20.sol
+
+
+// OpenZeppelin Contracts v4.4.1 (token/ERC20/IERC20.sol)
+
+pragma solidity ^0.8.0;
+
+/**
+ * @dev Interface of the ERC20 standard as defined in the EIP.
+ */
+interface IERC20 {
+    /**
+     * @dev Returns the amount of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
+
+    /**
+     * @dev Returns the amount of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
+
+    /**
+     * @dev Moves `amount` tokens from the caller's account to `recipient`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address recipient, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 amount) external returns (bool);
+
+    /**
+     * @dev Moves `amount` tokens from `sender` to `recipient` using the
+     * allowance mechanism. `amount` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) external returns (bool);
+
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+}
+
+// File: @openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol
+
+
+// OpenZeppelin Contracts v4.4.1 (token/ERC20/extensions/IERC20Metadata.sol)
+
+pragma solidity ^0.8.0;
+
+
+/**
+ * @dev Interface for the optional metadata functions from the ERC20 standard.
+ *
+ * _Available since v4.1._
+ */
+interface IERC20Metadata is IERC20 {
+    /**
+     * @dev Returns the name of the token.
+     */
+    function name() external view returns (string memory);
+
+    /**
+     * @dev Returns the symbol of the token.
+     */
+    function symbol() external view returns (string memory);
+
+    /**
+     * @dev Returns the decimals places of the token.
+     */
+    function decimals() external view returns (uint8);
+}
+
+// File: @openzeppelin/contracts/token/ERC20/ERC20.sol
+
+
+// OpenZeppelin Contracts v4.4.1 (token/ERC20/ERC20.sol)
+
+pragma solidity ^0.8.0;
+
+
+
+
+/**
+ * @dev Implementation of the {IERC20} interface.
+ *
+ * This implementation is agnostic to the way tokens are created. This means
+ * that a supply mechanism has to be added in a derived contract using {_mint}.
+ * For a generic mechanism see {ERC20PresetMinterPauser}.
+ *
+ * TIP: For a detailed writeup see our guide
+ * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How
+ * to implement supply mechanisms].
+ *
+ * We have followed general OpenZeppelin Contracts guidelines: functions revert
+ * instead returning `false` on failure. This behavior is nonetheless
+ * conventional and does not conflict with the expectations of ERC20
+ * applications.
+ *
+ * Additionally, an {Approval} event is emitted on calls to {transferFrom}.
+ * This allows applications to reconstruct the allowance for all accounts just
+ * by listening to said events. Other implementations of the EIP may not emit
+ * these events, as it isn't required by the specification.
+ *
+ * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}
+ * functions have been added to mitigate the well-known issues around setting
+ * allowances. See {IERC20-approve}.
+ */
+contract ERC20 is Context, IERC20, IERC20Metadata {
+    mapping(address => uint256) private _balances;
+
+    mapping(address => mapping(address => uint256)) private _allowances;
+
+    uint256 private _totalSupply;
+
+    string private _name;
+    string private _symbol;
+
+    /**
+     * @dev Sets the values for {name} and {symbol}.
+     *
+     * The default value of {decimals} is 18. To select a different value for
+     * {decimals} you should overload it.
+     *
+     * All two of these values are immutable: they can only be set once during
+     * construction.
+     */
+    constructor(string memory name_, string memory symbol_) {
+        _name = name_;
+        _symbol = symbol_;
+    }
+
+    /**
+     * @dev Returns the name of the token.
+     */
+    function name() public view virtual override returns (string memory) {
+        return _name;
+    }
+
+    /**
+     * @dev Returns the symbol of the token, usually a shorter version of the
+     * name.
+     */
+    function symbol() public view virtual override returns (string memory) {
+        return _symbol;
+    }
+
+    /**
+     * @dev Returns the number of decimals used to get its user representation.
+     * For example, if `decimals` equals `2`, a balance of `505` tokens should
+     * be displayed to a user as `5.05` (`505 / 10 ** 2`).
+     *
+     * Tokens usually opt for a value of 18, imitating the relationship between
+     * Ether and Wei. This is the value {ERC20} uses, unless this function is
+     * overridden;
+     *
+     * NOTE: This information is only used for _display_ purposes: it in
+     * no way affects any of the arithmetic of the contract, including
+     * {IERC20-balanceOf} and {IERC20-transfer}.
+     */
+    function decimals() public view virtual override returns (uint8) {
+        return 18;
+    }
+
+    /**
+     * @dev See {IERC20-totalSupply}.
+     */
+    function totalSupply() public view virtual override returns (uint256) {
+        return _totalSupply;
+    }
+
+    /**
+     * @dev See {IERC20-balanceOf}.
+     */
+    function balanceOf(address account) public view virtual override returns (uint256) {
+        return _balances[account];
+    }
+
+    /**
+     * @dev See {IERC20-transfer}.
+     *
+     * Requirements:
+     *
+     * - `recipient` cannot be the zero address.
+     * - the caller must have a balance of at least `amount`.
+     */
+    function transfer(address recipient, uint256 amount) public virtual override returns (bool) {
+        _transfer(_msgSender(), recipient, amount);
+        return true;
+    }
+
+    /**
+     * @dev See {IERC20-allowance}.
+     */
+    function allowance(address owner, address spender) public view virtual override returns (uint256) {
+        return _allowances[owner][spender];
+    }
+
+    /**
+     * @dev See {IERC20-approve}.
+     *
+     * Requirements:
+     *
+     * - `spender` cannot be the zero address.
+     */
+    function approve(address spender, uint256 amount) public virtual override returns (bool) {
+        _approve(_msgSender(), spender, amount);
+        return true;
+    }
+
+    /**
+     * @dev See {IERC20-transferFrom}.
+     *
+     * Emits an {Approval} event indicating the updated allowance. This is not
+     * required by the EIP. See the note at the beginning of {ERC20}.
+     *
+     * Requirements:
+     *
+     * - `sender` and `recipient` cannot be the zero address.
+     * - `sender` must have a balance of at least `amount`.
+     * - the caller must have allowance for ``sender``'s tokens of at least
+     * `amount`.
+     */
+    function transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) public virtual override returns (bool) {
+        _transfer(sender, recipient, amount);
+
+        uint256 currentAllowance = _allowances[sender][_msgSender()];
+        require(currentAllowance >= amount, "ERC20: transfer amount exceeds allowance");
+        unchecked {
+            _approve(sender, _msgSender(), currentAllowance - amount);
+        }
+
+        return true;
+    }
+
+    /**
+     * @dev Atomically increases the allowance granted to `spender` by the caller.
+     *
+     * This is an alternative to {approve} that can be used as a mitigation for
+     * problems described in {IERC20-approve}.
+     *
+     * Emits an {Approval} event indicating the updated allowance.
+     *
+     * Requirements:
+     *
+     * - `spender` cannot be the zero address.
+     */
+    function increaseAllowance(address spender, uint256 addedValue) public virtual returns (bool) {
+        _approve(_msgSender(), spender, _allowances[_msgSender()][spender] + addedValue);
+        return true;
+    }
+
+    /**
+     * @dev Atomically decreases the allowance granted to `spender` by the caller.
+     *
+     * This is an alternative to {approve} that can be used as a mitigation for
+     * problems described in {IERC20-approve}.
+     *
+     * Emits an {Approval} event indicating the updated allowance.
+     *
+     * Requirements:
+     *
+     * - `spender` cannot be the zero address.
+     * - `spender` must have allowance for the caller of at least
+     * `subtractedValue`.
+     */
+    function decreaseAllowance(address spender, uint256 subtractedValue) public virtual returns (bool) {
+        uint256 currentAllowance = _allowances[_msgSender()][spender];
+        require(currentAllowance >= subtractedValue, "ERC20: decreased allowance below zero");
+        unchecked {
+            _approve(_msgSender(), spender, currentAllowance - subtractedValue);
+        }
+
+        return true;
+    }
+
+    /**
+     * @dev Moves `amount` of tokens from `sender` to `recipient`.
+     *
+     * This internal function is equivalent to {transfer}, and can be used to
+     * e.g. implement automatic token fees, slashing mechanisms, etc.
+     *
+     * Emits a {Transfer} event.
+     *
+     * Requirements:
+     *
+     * - `sender` cannot be the zero address.
+     * - `recipient` cannot be the zero address.
+     * - `sender` must have a balance of at least `amount`.
+     */
+    function _transfer(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) internal virtual {
+        require(sender != address(0), "ERC20: transfer from the zero address");
+        require(recipient != address(0), "ERC20: transfer to the zero address");
+
+        _beforeTokenTransfer(sender, recipient, amount);
+
+        uint256 senderBalance = _balances[sender];
+        require(senderBalance >= amount, "ERC20: transfer amount exceeds balance");
+        unchecked {
+            _balances[sender] = senderBalance - amount;
+        }
+        _balances[recipient] += amount;
+
+        emit Transfer(sender, recipient, amount);
+
+        _afterTokenTransfer(sender, recipient, amount);
+    }
+
+    /** @dev Creates `amount` tokens and assigns them to `account`, increasing
+     * the total supply.
+     *
+     * Emits a {Transfer} event with `from` set to the zero address.
+     *
+     * Requirements:
+     *
+     * - `account` cannot be the zero address.
+     */
+    function _mint(address account, uint256 amount) internal virtual {
+        require(account != address(0), "ERC20: mint to the zero address");
+
+        _beforeTokenTransfer(address(0), account, amount);
+
+        _totalSupply += amount;
+        _balances[account] += amount;
+        emit Transfer(address(0), account, amount);
+
+        _afterTokenTransfer(address(0), account, amount);
+    }
+
+    /**
+     * @dev Destroys `amount` tokens from `account`, reducing the
+     * total supply.
+     *
+     * Emits a {Transfer} event with `to` set to the zero address.
+     *
+     * Requirements:
+     *
+     * - `account` cannot be the zero address.
+     * - `account` must have at least `amount` tokens.
+     */
+    function _burn(address account, uint256 amount) internal virtual {
+        require(account != address(0), "ERC20: burn from the zero address");
+
+        _beforeTokenTransfer(account, address(0), amount);
+
+        uint256 accountBalance = _balances[account];
+        require(accountBalance >= amount, "ERC20: burn amount exceeds balance");
+        unchecked {
+            _balances[account] = accountBalance - amount;
+        }
+        _totalSupply -= amount;
+
+        emit Transfer(account, address(0), amount);
+
+        _afterTokenTransfer(account, address(0), amount);
+    }
+
+    /**
+     * @dev Sets `amount` as the allowance of `spender` over the `owner` s tokens.
+     *
+     * This internal function is equivalent to `approve`, and can be used to
+     * e.g. set automatic allowances for certain subsystems, etc.
+     *
+     * Emits an {Approval} event.
+     *
+     * Requirements:
+     *
+     * - `owner` cannot be the zero address.
+     * - `spender` cannot be the zero address.
+     */
+    function _approve(
+        address owner,
+        address spender,
+        uint256 amount
+    ) internal virtual {
+        require(owner != address(0), "ERC20: approve from the zero address");
+        require(spender != address(0), "ERC20: approve to the zero address");
+
+        _allowances[owner][spender] = amount;
+        emit Approval(owner, spender, amount);
+    }
+
+    /**
+     * @dev Hook that is called before any transfer of tokens. This includes
+     * minting and burning.
+     *
+     * Calling conditions:
+     *
+     * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens
+     * will be transferred to `to`.
+     * - when `from` is zero, `amount` tokens will be minted for `to`.
+     * - when `to` is zero, `amount` of ``from``'s tokens will be burned.
+     * - `from` and `to` are never both zero.
+     *
+     * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
+     */
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal virtual {}
+
+    /**
+     * @dev Hook that is called after any transfer of tokens. This includes
+     * minting and burning.
+     *
+     * Calling conditions:
+     *
+     * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens
+     * has been transferred to `to`.
+     * - when `from` is zero, `amount` tokens have been minted for `to`.
+     * - when `to` is zero, `amount` of ``from``'s tokens have been burned.
+     * - `from` and `to` are never both zero.
+     *
+     * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
+     */
+    function _afterTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal virtual {}
+}
+
+// File: contracts/SonOfElon .sol
+
+pragma solidity 0.8.10;
+
+
+contract SonOfElon is ERC20, Ownable {
+
+  mapping(address => bool) private liquidityPool;
+  mapping(address => bool) private nftTax;
+  mapping(address => uint256) private lastTrade;
+
+  uint8 private sellTax;
+  uint8 private buyTax;
+  uint8 private transferTax;
+  uint8 private tradeCooldown;
+  address private burnpool;
+
+
+  event changeTax(uint8 _sellTax, uint8 _buyTax, uint8 _transferTax);
+  event changeCooldown(uint8 tradeCooldown);
+  event changeLiquidityPoolStatus(address lpAddress, bool status);
+  event changenftTax(address _address, bool status);
+  event changeBurnpool(address burnpool);
+
+  constructor() ERC20("X AE A-Xii Musk", "XAEA-Xii") {
+    _mint(msg.sender, 5000000 * 1 ether);
+    sellTax = 0;
+    buyTax = 0;
+    transferTax = 0;
+    tradeCooldown = 60;
+  }
+
+  function setTaxes(uint8 _sellTax, uint8 _buyTax, uint8 _transferTax) external onlyOwner {
+    sellTax = _sellTax;
+    buyTax = _buyTax;
+    transferTax = _transferTax;
+    emit changeTax(_sellTax,_buyTax,_transferTax);
+  }
+
+  function getTaxes() external pure returns (uint8 _sellTax, uint8 _buyTax, uint8 _transferTax) {
+    return (_sellTax, _buyTax, _transferTax);
+  }
+
+  function setCooldownForTrades(uint8 _tradeCooldown) external onlyOwner {
+    tradeCooldown = _tradeCooldown;
+    emit changeCooldown(_tradeCooldown);
+  }
+
+  function setLiquidityPoolStatus(address _lpAddress, bool _status) external onlyOwner {
+    liquidityPool[_lpAddress] = _status;
+    emit changeLiquidityPoolStatus(_lpAddress, _status);
+  }
+
+  function setnft(address _address, bool _status) external onlyOwner {
+    nftTax[_address] = _status;
+    emit changenftTax(_address, _status);
+  }
+
+  function setBurnpool(address _burnpool) external onlyOwner {
+    burnpool = _burnpool;
+    emit changeBurnpool(_burnpool);
+  }
+
+  function _transfer(address sender, address receiver, uint256 amount) internal virtual override {
+    uint256 taxAmount;
+    if(liquidityPool[sender] == true) {
+      //It's an LP Pair and it's a buy
+      taxAmount = (amount * buyTax) / 100;
+    } else if(liquidityPool[receiver] == true) {      
+      //It's an LP Pair and it's a sell
+      taxAmount = (amount * sellTax) / 100;
+
+      require(lastTrade[sender] < (block.timestamp - tradeCooldown), string("No consecutive sells allowed. Please wait."));
+      lastTrade[sender] = block.timestamp;
+
+    } else if(nftTax[sender] || nftTax[receiver] || sender == burnpool || receiver == burnpool) {
+      taxAmount = 0;
+    } else {
+      taxAmount = (amount * transferTax) / 100;
+    }
+    
+    if(taxAmount > 0) {
+      super._transfer(sender, burnpool, taxAmount);
+    }    
+    super._transfer(sender, receiver, amount - taxAmount);
+  }
+
+  function _beforeTokenTransfer(address _from, address _to, uint256 _amount) internal override {
+    require(_to != address(this), string("No transfers to contract allowed."));    
+    super._beforeTokenTransfer(_from, _to, _amount);
+  }
+
 }
